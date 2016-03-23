@@ -2,24 +2,85 @@
 <html>
     <head>
 <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1"/>
-    <!--
-        Personalice la directiva de seguridad de contenido en la etiqueta meta como sea necesario. Agregue "unsafe-inline" a default-src para permitir JavaScript insertado.
-        Para obtener más detalles, consulte http://go.microsoft.com/fwlink/?LinkID=617521
-    -->
-        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com http://javah.somee.com'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; connect-src 'self' http://javah.somee.com">
         
-        <meta name="format-detection" content="telephone=no">
-        <meta name="msapplication-tap-highlight" content="no">
-        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
-        <link rel="stylesheet" type="text/css" href="css/index.css">
         <title>javah.somee</title>
-    </head>
-    <body>
-        <div class="app">
-            <p id="deviceready" class="event">Connecting to Device!!</p>
-        </div>
+
         <script type="text/javascript" src="cordova.js"></script>
         <script type="text/javascript" src="scripts/platformOverrides.js"></script>
         <script type="text/javascript" src="scripts/index.js"></script>
+        <script src="scripts/jquery-2.2.1.min.js"></script>
+        <script src="scripts/bootstrap.min.js"></script>
+        <script src="scripts/bootbox.min.js"></script>
+        <link rel="stylesheet" href="css/index.css">
+        <link href="css/bootstrap.min.css" rel="stylesheet" />
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header">
+                <h2>javah.somee</h2>
+            </div>
+            <div class="col-sm-8">
+                <div>
+                    <h3><span class="glyphicon glyphicon-plus"></span>&nbsp;<u>Agregar</u>&nbsp;<span class="glyphicon glyphicon-plus"></span></h3>
+                </div>
+                <br /><br />
+                <div class="form-inline">
+                    <label for="name">Nombre:</label>
+                    <input type="text" class="form-control" id="name" placeholder="Introduce el nombre">
+                    <button type="button" id="enviar" class="btn btn-default">Agregar</button>
+                    <button type="button" id="prueba" class="btn btn-default" style="display:none;">eeeeee</button>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div align="center">
+                    <h3><span class="glyphicon glyphicon-list-alt"></span>&nbsp;<u>Listado</u>&nbsp;<span class="glyphicon glyphicon-list-alt"></span></h3>
+                </div>
+                <br /><br />
+                <div class="form-inline">
+                    <table id="NombresTable" class="table"></table>
+                </div>
+            </div>
+        </div>
+        <!-- Modal Start here-->
+        <div class="modal fade bs-example-modal-sm" id="myPleaseWait" tabindex="-1"
+             role="dialog" aria-hidden="true" data-backdrop="static">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title">
+                            <span class="glyphicon glyphicon-time">
+                            </span>Please Wait
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-info
+                    progress-bar-striped active"
+                                 style="width: 100%">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Modal ends Here -->
+
+        <!-- set up the modal to start hidden and fade in and out -->
+        <div id="myModal" class="modal fade">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- dialog body -->
+                    <div class="modal-body">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        Hello world!
+                    </div>
+                    <!-- dialog buttons -->
+                    <div class="modal-footer"><button type="button" class="btn btn-primary">OK</button></div>
+                </div>
+            </div>
+        </div>
+
     </body>
 </html>
